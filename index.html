@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="ja">
+ 
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO基本設定 ===== -->
+  <title>湯気 - YUGE Sauna & Spa 神田｜神田駅徒歩3分の完全予約制サウナ</title>
+  <meta name="description" content="神田駅西口徒歩3分。12℃・16℃の2槽水風呂、ロウリュ対応メインサウナ、女性専用やわらかロウリュ室を完備した完全予約制サウナ。10周年記念キャンペーン ¥1,600〜。オンライン予約で待ち時間ゼロ。">
+  <meta name="keywords" content="サウナ 神田,YUGE,湯気,予約制サウナ,水風呂 12℃,ロウリュ,女性専用サウナ,神田駅 サウナ,ととのう,外気浴">
+  <meta name="author" content="湯気 - YUGE Sauna & Spa 神田">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yuge-sauna.jp/">
+
+  <!-- ===== OGP（Facebook / 一般SNS） ===== -->
+  <meta property="og:title" content="湯気 - YUGE Sauna & Spa 神田｜退勤後、並ばず整う。">
+  <meta property="og:description" content="神田駅徒歩3分の完全予約制サウナ。12℃/16℃水風呂・ロウリュ対応・女性専用エリア完備。10周年記念 ¥1,600〜">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuge-sauna.jp/">
+  <meta property="og:image" content="https://yuge-sauna.jp/images_dir/ogp_image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="湯気 - YUGE Sauna & Spa 神田">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@yuge_sauna">
+  <meta name="twitter:title" content="湯気 - YUGE Sauna & Spa 神田｜退勤後、並ばず整う。">
+  <meta name="twitter:description" content="神田駅徒歩3分の完全予約制サウナ。12℃/16℃水風呂・ロウリュ対応・女性専用エリア完備。10周年記念 ¥1,600〜">
+  <meta name="twitter:image" content="https://yuge-sauna.jp/images_dir/ogp_image.png">
+
+  <!-- ===== 構造化データ（JSON-LD） ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "湯気 - YUGE Sauna & Spa 神田",
+    "image": "https://yuge-sauna.jp/images_dir/Main_sauna_image.png",
+    "url": "https://yuge-sauna.jp/",
+    "telephone": "03-1234-5678",
+    "email": "reservation@yuge-sauna.jp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "内神田3-7-10 YUGE BLDG 5-7F",
+      "addressLocality": "千代田区",
+      "addressRegion": "東京都",
+      "postalCode": "101-0047",
+      "addressCountry": "JP"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.6918,
+      "longitude": 139.7710
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "07:00",
+      "closes": "24:00"
+    },
+    "priceRange": "¥1,400〜¥3,100",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "50000"
+    },
+    "paymentAccepted": "現金, クレジットカード, 交通系IC, PayPay, Apple Pay"
+  }
+  </script>
+ 
+  <!-- Fonts added -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+
+  <!-- ===== ファビコン設定 ===== -->
+  <link rel="icon" type="image/svg+xml" href="images_dir/favicon.svg">
+  <link rel="icon" href="images_dir/favicon.ico"> <!-- 16×16と32×32 推奨 -->
+  <link rel="apple-touch-icon" href="images_dir/apple-touch-icon.png"> <!-- 180×180 推奨 -->
+  <!-- Android Chrome用 -->
+  <link rel="icon" type="image/png" sizes="192x192" href="images_dir/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images_dir/android-chrome-512x512.png">
+
+  <link rel="stylesheet" href="SaunaAndSpa.css">
+  <script src="SaunaAndSpa.js" defer></script>
+</head>
+<body>
+
+  <!-- ① Hero Section -->
+  <section id="hero">
+    <div class="hero-bg">
+      <img src="images_dir/Main_sauna_image.png" alt="湯気 YUGE Sauna & Spa メインサウナ室">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="images_dir/Logo.png" alt="湯気 YUGE Sauna & Spa ロゴ" class="hero-logo">
+      <div class="hero-name">湯気 - YUGE Sauna & Spa 神田</div>
+      <p class="hero-description">神田駅徒歩3分の完全予約制サウナ。女性専用エリア完備。10周年記念キャンペーン実施中 ¥1,600〜（通常¥2,000）</p>
+      <div class="hero-divider"></div>
+      <span class="hero-tagline">都心の隠れ家サウナ ― 神田 10周年</span>
+      <h1 class="hero-h1">退勤後、並ばず整う。</h1>
+      <p class="hero-sub">オンライン予約で待ち時間ゼロ。12℃/16℃水風呂＋ロウリュ対応の本格サウナ</p>
+      <div class="hero-cta-group">
+        <div class="cta-with-micro">
+          <div class="btn-microcopy-above">空き枠を確認する（1分で予約）</div>
+          <a href="#" class="btn-primary" aria-label="今すぐ予約">今すぐ予約</a>
+        </div>
+        <a href="#" class="btn-secondary" aria-label="LINEで空き状況を受け取る">LINEで空き状況を受け取る</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <!-- ② 選ばれる理由 -->
+  <section id="reasons">
+    <span class="section-label fade-in">Why YUGE</span>
+    <h2 class="fade-in">選ばれる理由</h2>
+    <div class="reasons-grid">
+      <!-- Card 1 -->
+      <div class="reason-card fade-in">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4v24M16 4c-2 4-2 8 0 12s2 8 0 12" stroke-linecap="round"/><line x1="12" y1="28" x2="20" y2="28" stroke-linecap="round"/><line x1="10" y1="8" x2="16" y2="8" stroke-linecap="round"/><line x1="10" y1="12" x2="16" y2="12" stroke-linecap="round"/></svg>
+        </div>
+        <div class="num">12℃ / 16℃</div>
+        <div class="title">2槽の水風呂</div>
+        <div class="desc">1℃単位のこだわり温度設計。バイブラ循環で全身に刺激。</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="reason-card fade-in">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="24" height="22" rx="2" fill="none"/><line x1="4" y1="12" x2="28" y2="12"/><line x1="10" y1="4" x2="10" y2="8"/><line x1="22" y1="4" x2="22" y2="8"/><circle cx="16" cy="20" r="2"/></svg>
+        </div>
+        <div class="num">予約制</div>
+        <div class="title">待ち時間ゼロ</div>
+        <div class="desc">オンライン予約で確実に入館。混雑ピークも安心。</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="reason-card fade-in">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4c-4 0-8 2-10 6s-2 8 0 12c2 3 6 6 10 8 4-2 8-5 10-8s2-8 0-12-6-6-10-6z" fill="none"/><path d="M12 16c0-2 2-4 4-4" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <div class="num">女性専用</div>
+        <div class="title">やわらかロウリュ室</div>
+        <div class="desc">80〜84℃の専用室。毎時15分の優しいロウリュ。</div>
+      </div>
+      <!-- Card 4 -->
+      <div class="reason-card fade-in">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><polygon points="16,4 19.5,12 28,13 22,19 23.5,28 16,24 8.5,28 10,19 4,13 12.5,12" fill="none"/></svg>
+        </div>
+        <div class="num">4.7 / 5</div>
+        <div class="title">月間平均評価</div>
+        <div class="desc">年間来館者5万人・再訪率46%の信頼実績。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ キャンペーン価格バナー -->
+  <div class="campaign-section">
+    <div class="campaign-banner fade-in">
+      <div class="campaign-badge">🎉 10周年記念キャンペーン実施中</div>
+      <h2>特別プラン</h2>
+      <div class="campaign-cards">
+        <!-- Featured -->
+        <div class="campaign-card featured">
+          <div class="plan-name">10周年パック</div>
+          <div>
+            <span class="price-old">¥2,000</span>
+            <span class="price-new">¥1,600</span>
+            <span class="price-unit">（90分）</span>
+            <span class="discount-tag">20%OFF</span>
+          </div>
+          <div class="plan-detail">サウナ×2セット＋選べるドリンク（オロポ or 黒糖ラッシー）</div>
+        </div>
+        <!-- Pair -->
+        <div class="campaign-card">
+          <div class="plan-name">ペア割</div>
+          <div>
+            <span class="price-old">¥5,600</span>
+            <span class="price-new">¥4,600</span>
+            <span class="price-unit">（2名・120分）</span>
+            <span class="discount-tag">¥1,000 OFF</span>
+          </div>
+          <div class="plan-detail">リクライニング外気浴シート2席確保</div>
+        </div>
+        <!-- Morning -->
+        <div class="campaign-card">
+          <div class="plan-name">朝活ととのい</div>
+          <div>
+            <span class="price-old">¥1,800</span>
+            <span class="price-new">¥1,400</span>
+            <span class="price-unit">（90分）</span>
+          </div>
+          <div class="plan-detail">7:00〜10:00入館限定・先着平日20名・タオル無料</div>
+        </div>
+      </div>
+      <div class="campaign-meta">
+        <p>期間: 2025年11月1日（土）〜 12月15日（月）｜オンライン予約限定</p>
+        <p>クーポンコード: <span class="coupon">YUGE10</span>（予約フォームに入力）</p>
+        <p>※前日23:59まで予約可。キャンセルは入館前2時間まで無料。</p>
+      </div>
+      <div class="btn-cta-wrap">
+        <div class="cta-with-micro">
+          <div class="btn-microcopy-above">【YUGE10】¥1,600〜</div>
+          <a href="#" class="btn-primary" data-plan="10周年パック" aria-label="今すぐ予約">今すぐ予約</a>
+        </div>
+        <div class="btn-microcopy">キャンセル無料（入館2時間前まで）｜会員登録不要</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ 設備詳細 -->
+  <section id="facilities">
+    <span class="section-label fade-in">Facilities</span>
+    <h2 class="fade-in">設備詳細</h2>
+
+    <div class="info-banner fade-in">
+      予約枠制で入館者数を管理。平日19〜21時のピークも、確保した枠で快適にお使いいただけます。
+    </div>
+
+    <!-- 施設横スクロールショーケース -->
+    <div class="facility-showcase fade-in">
+      <div class="showcase-track">
+
+        <div class="showcase-card">
+          <div class="showcase-card-image">
+            <img src="images_dir/Main_sauna_image.png" alt="メイン乾式サウナ 90〜94℃">
+            <span class="showcase-badge">メインサウナ</span>
+          </div>
+          <div class="showcase-card-body">
+            <h4>乾式サウナ <span style="color:var(--wood);">90〜94℃</span></h4>
+            <p>ロウリュ毎時00・30分実施。白樺・柚子・ヒノキの日替わりアロマ。電気式大型ストーブ搭載。</p>
+          </div>
+        </div>
+
+        <div class="showcase-card">
+          <div class="showcase-card-image">
+            <img src="images_dir/Low_temp_image.png" alt="低温メディテーションサウナ">
+            <span class="showcase-badge">メディテーション</span>
+          </div>
+          <div class="showcase-card-body">
+            <h4>低温サウナ <span style="color:var(--wood);">70〜74℃</span></h4>
+            <p>432Hz自然調律BGMと間接照明の静寂空間。瞑想・内省のための穏やかな室温設計。</p>
+          </div>
+        </div>
+
+        <div class="showcase-card">
+          <div class="showcase-card-image">
+            <img src="images_dir/Ladies_sauna_image.png" alt="女性専用やわらかロウリュサウナ">
+            <span class="showcase-badge">女性専用</span>
+          </div>
+          <div class="showcase-card-body">
+            <h4>やわらかロウリュ <span style="color:var(--wood);">80〜84℃</span></h4>
+            <p>毎時15分の優しいロウリュ。定員6席のプライベート空間。Dysonドライヤー完備。</p>
+          </div>
+        </div>
+
+        <div class="showcase-card">
+          <div class="showcase-card-image">
+            <img src="images_dir/relaxation_image.png" alt="外気浴リクライニングスペース">
+            <span class="showcase-badge">リクライニング</span>
+          </div>
+          <div class="showcase-card-body">
+            <h4>外気浴ラウンジ</h4>
+            <p>リクライニング6席＋インフィニティ2席。都市の夜景を望む開放的な空間。膝掛けあり。</p>
+          </div>
+        </div>
+
+        <div class="showcase-card">
+          <div class="showcase-card-image">
+            <img src="images_dir/lounge_image.png" alt="ラウンジスペース">
+            <span class="showcase-badge">ラウンジ</span>
+          </div>
+          <div class="showcase-card-body">
+            <h4>ラウンジ</h4>
+            <p>和モダンの落ち着いた休憩空間。サウナ後のクールダウンに最適。オロポ・黒糖ラッシーもこちらで。</p>
+          </div>
+        </div>
+
+        <div class="showcase-card">
+          <div class="showcase-card-image">
+            <img src="images_dir/Reception_image.png" alt="レセプション・受付">
+            <span class="showcase-badge">レセプション</span>
+          </div>
+          <div class="showcase-card-body">
+            <h4>レセプション</h4>
+            <p>予約確認からスムーズにご案内。館内着レンタル・アメニティのお渡しもこちらで。</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="showcase-nav">
+        <button class="showcase-prev" aria-label="前へ">
+          <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+        </button>
+        <button class="showcase-next" aria-label="次へ">
+          <svg viewBox="0 0 24 24"><polyline points="9,6 15,12 9,18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="tabs-nav fade-in">
+      <button class="tab-btn active" data-target="#tab-sauna">サウナ室</button>
+      <button class="tab-btn" data-target="#tab-water">水風呂</button>
+      <button class="tab-btn" data-target="#tab-outdoor">外気浴</button>
+    </div>
+
+    <!-- Tab: Sauna -->
+    <div id="tab-sauna" class="tab-content active fade-in">
+      <div class="facility-grid">
+        <div class="facility-image">
+          <img src="images_dir/Main_sauna_image.png" alt="メイン乾式サウナ 90〜94℃">
+        </div>
+        <div class="facility-info">
+          <div class="item">
+            <span class="item-label">メイン乾式</span>
+            <span class="item-value"><span class="temp-highlight">90〜94℃</span> ／ ロウリュ 毎時00・30分（白樺・柚子・ヒノキ日替わり）</span>
+          </div>
+          <div class="item">
+            <span class="item-label">低温メディテーション</span>
+            <span class="item-value"><span class="temp-highlight">70〜74℃</span> ／ 432Hz BGM ／ 間接照明</span>
+          </div>
+          <div class="item">
+            <span class="item-label">収容</span>
+            <span class="item-value">男性20席（メイン12+低温8）／ 女性26席（メイン12+低温8+やわらか6）</span>
+          </div>
+          <div class="item">
+            <span class="item-label">ストーブ</span>
+            <span class="item-value">電気式大型業務用ダブルユニット ／ 火成岩（オリビン系）ストーン 年1回交換</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:24px;">
+        <div class="facility-grid">
+          <div class="facility-image">
+            <img src="images_dir/Low_temp_image.png" alt="低温メディテーションサウナ">
+          </div>
+          <div class="facility-info">
+            <div class="item">
+              <span class="item-label">低温の特徴</span>
+              <span class="item-value">432Hz自然調律BGMと最小限の間接照明。瞑想・内省のための静寂空間。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Water -->
+    <div id="tab-water" class="tab-content fade-in">
+      <div class="facility-info" style="max-width:700px;">
+        <div class="item">
+          <span class="item-label"><span class="temp-highlight">12℃</span>槽（2名）</span>
+          <span class="item-value">シングル水温。バイブラ循環。UV+カートリッジろ過。</span>
+        </div>
+        <div class="item">
+          <span class="item-label"><span class="temp-highlight">16℃</span>槽（4名）</span>
+          <span class="item-value">慣らし水温。製氷機+チラーで安定供給。</span>
+        </div>
+        <div class="item">
+          <span class="item-label">週末限定</span>
+          <span class="item-value"><span class="temp-highlight">9℃</span>ショック実施（時間限定告知）</span>
+        </div>
+        <div class="item">
+          <span class="item-label">水質管理</span>
+          <span class="item-value">pH・塩素濃度・温度ログを日次公開</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Outdoor -->
+    <div id="tab-outdoor" class="tab-content fade-in">
+      <div class="facility-grid">
+        <div class="facility-image">
+          <img src="images_dir/relaxation_image.png" alt="外気浴リクライニングスペース">
+        </div>
+        <div class="facility-info">
+          <div class="item">
+            <span class="item-label">席数</span>
+            <span class="item-value">8席（リクライニング6席 + インフィニティ2席）</span>
+          </div>
+          <div class="item">
+            <span class="item-label">アメニティ</span>
+            <span class="item-value">膝掛けあり。都市の夜景を望む。</span>
+          </div>
+          <div class="item">
+            <span class="item-label">オプション</span>
+            <span class="item-value">館内着レンタル ¥300 で利用可</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-cta-wrap fade-in">
+      <div class="cta-with-micro">
+        <div class="btn-microcopy-above">12℃水風呂を体験する</div>
+        <a href="#" class="btn-primary" data-plan="10周年パック" aria-label="今すぐ予約">今すぐ予約</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 女性専用エリア -->
+  <section id="women">
+    <div class="women-hero fade-in">
+      <div class="women-hero-image">
+        <img src="images_dir/Ladies_sauna_image.png" alt="女性専用やわらかロウリュサウナ室">
+      </div>
+      <div>
+        <span class="section-label">Women's Area</span>
+        <h2>女性専用エリア</h2>
+        <div class="women-catch">やわらかロウリュ</div>
+        <p style="font-size:14px; color:var(--text-sub); line-height:1.8;">
+          室温 80〜84℃ ／ 毎時15分 やわらかロウリュ（短時間送風）<br>
+          定員: 6席（メインサウナ・低温と合計26席）
+        </p>
+      </div>
+    </div>
+
+    <div class="women-features fade-in">
+      <div class="women-feature-card">
+        <h4>パウダールーム</h4>
+        <p>Dysonドライヤー設置。オーガニック化粧水・乳液・コットン・綿棒完備。</p>
+      </div>
+      <div class="women-feature-card">
+        <h4>手ぶら来館OK</h4>
+        <p>アメニティ標準装備。間接照明で眩しくない設計。</p>
+      </div>
+    </div>
+
+    <div class="pair-banner fade-in">
+      <div class="pair-price">女性同士のペア利用で ¥4,600（2名・120分）</div>
+      <p>リクライニング外気浴シート2席を確保します</p>
+      <!-- 追加 -->
+      <div class="cta-with-micro" style="margin-top:16px;">
+        <div class="btn-microcopy-above">女性同士ペア割を予約する</div>
+        <a href="javascript:void(0)" class="btn-primary"
+           onclick="openModal('女性同士ペア割')"
+           aria-label="今すぐ予約">
+          今すぐ予約
+        </a>
+      </div>
+    </div>
+
+    <div class="women-cta-group fade-in">
+      <div class="cta-with-micro">
+        <div class="btn-microcopy-above">女性専用エリアを予約する（ペア割あり）</div>
+        <a href="#" class="btn-primary" data-plan="女性専用エリア 単独利用" aria-label="今すぐ予約">今すぐ予約</a>
+      </div>
+      <a href="#" class="btn-secondary" aria-label="LINEで詳細を確認する">LINEで詳細を確認する</a>
+    </div>
+  </section>
+
+  <!-- ⑥ 衛生管理・安心材料 -->
+  <section id="hygiene">
+    <span class="section-label fade-in">Safety & Hygiene</span>
+    <h2 class="fade-in">衛生管理・安心材料</h2>
+    <div class="hygiene-grid">
+      <div class="hygiene-card fade-in">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <div class="value">30分ごと</div>
+        <div class="label">室内清掃チェック実施</div>
+      </div>
+      <div class="hygiene-card fade-in">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c0 4-4 6-4 10a4 4 0 008 0c0-4-4-6-4-10z"/></svg>
+        </div>
+        <div class="value">水質公開</div>
+        <div class="label">pH・塩素濃度・温度ログを日次公開</div>
+      </div>
+      <div class="hygiene-card fade-in">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 2A6.5 6.5 0 003 8.5c0 5.5 9 13.5 9 13.5s9-8 9-13.5A6.5 6.5 0 0014.5 2C12.9 2 12 3 12 3S11.1 2 9.5 2z" fill="none"/><path d="M3 8l4 4M7 8l-4 4" stroke-linecap="round"/></svg>
+        </div>
+        <div class="value">1日4回</div>
+        <div class="label">換気実施</div>
+      </div>
+      <div class="hygiene-card fade-in">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="value">6名在籍</div>
+        <div class="label">サウナ・スパ健康アドバイザー有資格スタッフ</div>
+      </div>
+      <div class="hygiene-card fade-in">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" fill="none"/></svg>
+        </div>
+        <div class="value">月1回</div>
+        <div class="label">水質検査 ／ 消防設備点検 年2回</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINE Section -->
+  <div class="line-section">
+    <div class="line-box fade-in">
+      <h2>LINEでもっとお得に</h2>
+      <div class="line-benefits">
+        <div class="item"><span class="check">✔</span> 空き状況をリアルタイム通知</div>
+        <div class="item"><span class="check">✔</span> 来店後に次回10%OFFクーポン配布</div>
+        <div class="item"><span class="check">✔</span> 混雑しにくい穴場時間帯をお知らせ</div>
+      </div>
+      <div>
+        <a href="#" class="btn-line" aria-label="LINE友だち追加">LINE友だち追加（無料）</a>
+        <div class="btn-microcopy">登録後すぐにクーポンコードをお送りします</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ 料金プラン詳細 -->
+  <section id="pricing">
+    <span class="section-label fade-in">Pricing</span>
+    <h2 class="fade-in">料金プラン詳細</h2>
+
+    <div class="pricing-tables fade-in">
+      <div class="pricing-table-wrap">
+        <h3>平日料金</h3>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>プラン</th>
+              <th>料金（税込）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>90分</td><td>¥2,000</td></tr>
+            <tr><td>120分</td><td>¥2,800</td></tr>
+            <tr><td>朝活（7:00〜10:00）90分</td><td>¥1,800</td></tr>
+            <tr><td>延長30分</td><td>¥400</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pricing-table-wrap">
+        <h3>土日祝料金</h3>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>プラン</th>
+              <th>料金（税込）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>90分</td><td>¥2,300</td></tr>
+            <tr><td>120分</td><td>¥3,100</td></tr>
+            <tr><td>朝活（7:00〜10:00）90分</td><td>¥2,000</td></tr>
+            <tr><td>延長30分</td><td>¥500</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pricing-table-wrap">
+        <h3>オプション</h3>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>アイテム</th>
+              <th>料金（税込）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>バスタオル</td><td>¥200</td></tr>
+            <tr><td>サウナハット</td><td>¥200</td></tr>
+            <tr><td>館内着</td><td>¥300</td></tr>
+            <tr><td>オロポ</td><td>¥400</td></tr>
+            <tr><td>黒糖ラッシー</td><td>¥500</td></tr>
+            <tr><td>塩むすび</td><td>数量限定</td></tr>
+            <tr><td>貸切（屋上外気浴含む・平日2時間〜10名）</td><td>¥48,000（要電話）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="pricing-note fade-in">
+      すべて税込・フェイスタオル付。<br>
+      ※刺青のある方・泥酔状態の方の入館はお断りしております。ご了承ください。
+    </p>
+
+    <div class="btn-cta-wrap fade-in">
+      <div class="cta-with-micro">
+        <div class="btn-microcopy-above">空き枠を確認する（1分で完了）</div>
+        <a href="#" class="btn-primary" aria-label="今すぐ予約">今すぐ予約</a>
+      </div>
+      <div class="btn-microcopy">キャンセル無料（入館2時間前まで）</div>
+    </div>
+  </section>
+
+  <!-- ⑧ 実績・口コミ -->
+  <section id="reviews">
+    <span class="section-label fade-in">Reviews</span>
+    <h2 class="fade-in">実績・口コミ</h2>
+
+    <div class="stats-bar fade-in">
+      <div class="stat-item">
+        <div class="stat-num">★ 4.7 / 5</div>
+        <div class="stat-label">自社＋外部サイト合算月間平均</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5万人+</div>
+        <div class="stat-label">年間来館者（2024年度）</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">46%</div>
+        <div class="stat-label">リピーター再訪率</div>
+      </div>
+    </div>
+
+    <div class="review-cards fade-in">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">
+          退勤後に寄れる距離感が最高です。12℃の水風呂は他のどの施設よりもキリッと冷たくて、ロウリュも本格的。2セット目で完全に「ととのい」ました。予約制なので混雑を気にしなくていいのも嬉しい。
+        </div>
+        <div class="reviewer">S.W. / 32歳・男性</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">
+          女性専用エリアがあるので安心して通えます。やわらかロウリュは程よい温度で、サウナ初心者の友人も気に入っていました。パウダールームのDysonドライヤーとオーガニックアメニティも地味に嬉しいポイントです。
+        </div>
+        <div class="reviewer">M.K. / 28歳・女性</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨ ご利用フロー -->
+  <section id="flow">
+    <span class="section-label fade-in">How to Use</span>
+    <h2 class="fade-in">ご利用フロー</h2>
+    <div class="flow-steps fade-in">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-title">オンライン予約</div>
+        <div class="step-desc">1分で完了・会員登録不要</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-title">来館</div>
+        <div class="step-desc">神田駅西口 徒歩3分</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-title">受付・更衣室へ</div>
+        <div class="step-desc">スムーズにご案内</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-title">サウナを満喫</div>
+        <div class="step-desc">サウナ→水風呂→外気浴</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="step-num">5</div>
+        <div class="step-title">退館</div>
+        <div class="step-desc">パウダールームで整えて</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑩ FAQ -->
+  <section id="faq">
+    <span class="section-label fade-in">FAQ</span>
+    <h2 class="fade-in">よくあるご質問</h2>
+    <div class="faq-list fade-in">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>手ぶらで行けますか？</span>
+          <svg class="arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><polyline points="4,6 8,10 12,6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="faq-a">
+          <p>はい。フェイスタオル無料・アメニティ（化粧水/乳液/Dysonドライヤー/コットン・綿棒）完備。バスタオルは +¥200。</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>混雑する時間帯は？</span>
+          <svg class="arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><polyline points="4,6 8,10 12,6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="faq-a">
+          <p>平日19〜21時がピーク。朝活（7〜10時入館）が最も快適です。オンライン予約で枠を確保すれば待ち時間なしで入館できます。</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>支払い方法は？</span>
+          <svg class="arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><polyline points="4,6 8,10 12,6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="faq-a">
+          <p>現地/オンライン共に対応。現金・各種クレジット・交通系IC・PayPay・Apple Pay。</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>男女ペアで予約できますか？</span>
+          <svg class="arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><polyline points="4,6 8,10 12,6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="faq-a">
+          <p>可能です。更衣室・サウナ室はエリア別となります。外気浴と休憩スペースは共用です。</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>タトゥー・飲酒後の入館は？</span>
+          <svg class="arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><polyline points="4,6 8,10 12,6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="faq-a">
+          <p>刺青のある方・泥酔状態の方の入館はお断りしております。ご了承ください。</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>キャンセルはできますか？</span>
+          <svg class="arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><polyline points="4,6 8,10 12,6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="faq-a">
+          <p>入館前2時間まで無料でキャンセル可能。それ以降および無断キャンセルは次回以降の予約制限となる場合があります。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ⑪ アクセス -->
+  <section id="access">
+    <span class="section-label fade-in">Access</span>
+    <h2 class="fade-in">アクセス</h2>
+    <div class="access-grid fade-in">
+      <div class="access-info">
+        <div class="access-item">
+          <span class="access-label">住所</span>
+          <span class="access-value">〒101-0047 東京都千代田区内神田3-7-10<br>YUGE BLDG 5–7F</span>
+        </div>
+        <div class="access-item">
+          <span class="access-label">アクセス</span>
+          <span class="access-value">JR神田駅 西口より徒歩3分<br>東京メトロ銀座線 神田駅 2番出口 徒歩5分</span>
+        </div>
+        <div class="access-item">
+          <span class="access-label">営業時間</span>
+          <span class="access-value">7:00–24:00（最終入館 23:00）</span>
+        </div>
+        <div class="access-item">
+          <span class="access-label">定休日</span>
+          <span class="access-value">不定休（メンテナンス日はXにて告知）</span>
+        </div>
+        <div class="access-item">
+          <span class="access-label">駐輪</span>
+          <span class="access-value">可（8台）</span>
+        </div>
+        <div class="access-item">
+          <span class="access-label">駐車</span>
+          <span class="access-value">提携駐車場（徒歩4分・30分¥200）</span>
+        </div>
+        <div class="access-item">
+          <span class="access-label">TEL</span>
+          <span class="access-value">03-1234-5678（受付 10:00〜22:00）</span>
+        </div>
+        <div class="access-item">
+          <span class="access-label">お支払い</span>
+          <span class="access-value">現金・各種クレジット・交通系IC・PayPay・Apple Pay</span>
+        </div>
+      </div>
+      <div class="access-map">
+        <iframe src="https://maps.google.com/maps?q=東京都千代田区内神田3-7-10&output=embed" title="湯気 YUGE Sauna & Spa 地図" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑫ フッター -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">湯気 YUGE</div>
+          <div class="footer-tagline">都心の静かな隠れ家サウナ。神田より。</div>
+        </div>
+        <div class="footer-sns">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-6.8-8.5L20 4h-2l-5.2 6.3L8 4H4z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>
+          事業者名: 湯気 - YUGE Sauna & Spa 神田<br>
+          住所: 〒101-0047 東京都千代田区内神田3-7-10 YUGE BLDG 5–7F<br>
+          TEL: 03-1234-5678 ／ Email: <a href="/cdn-cgi/l/email-protection#11707a7863703f7570757568517378767d7e73743f7b61"><span class="__cf_email__" data-cfemail="c1a0aaa8b3a0efa5a0a5a5b881a3a8a6adaea3a4efabb1">[email&#160;protected]</span></a>
+          予約条件: オンライン予約は前日23:59まで。当日予約は電話のみ対応。<br>
+          キャンセルポリシー: 入館前2時間まで無料。それ以降および無断キャンセルは次回以降の予約制限対象。
+        </p>
+        <div class="footer-legal-links">
+          <a href="#">特定商取引法に基づく表記</a>
+          <a href="#">個人情報の取り扱い</a>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        © 2025 湯気 - YUGE Sauna & Spa 神田. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA -->
+  <div id="sticky-cta">
+    <a href="#" class="btn-sticky-secondary" aria-label="LINE登録">LINE登録</a>
+    <a href="#" class="btn-sticky-primary" aria-label="今すぐ予約">今すぐ予約</a>
+  </div>
+
+
+<!-- ==============================
+     予約フォームモーダル
+============================== -->
+<div id="reservation-modal" aria-modal="true" role="dialog" aria-labelledby="modal-title">
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal-content">
+    <button class="modal-close" id="modal-close" aria-label="閉じる">
+      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <div class="modal-header">
+      <div class="modal-eyebrow">Reservation</div>
+      <h2 id="modal-title" class="modal-title">ご予約</h2>
+    </div>
+
+    <form id="reservation-form" novalidate>
+
+      <!-- プラン選択 -->
+      <div class="form-group">
+        <label class="form-label" for="f-plan">プラン <span class="req">必須</span></label>
+        <select id="f-plan" name="plan" class="form-control" required>
+          <option value="">選択してください</option>
+          <option value="10周年パック（90分）¥1,600">🎉 10周年パック（90分）¥1,600</option>
+          <option value="ペア割（120分）¥4,600">ペア割（2名・120分）¥4,600</option>
+          <option value="女性専用エリア 単独利用（90分）¥2,000〜">女性専用エリア 単独利用（90分）¥2,000〜</option>
+          <option value="女性同士ペア割（120分）2名 ¥4,600">👭 女性同士ペア割（2名・120分）¥4,600</option>
+          <option value="朝活ととのい（90分）¥1,400">朝活ととのい（7:00〜10:00）¥1,400</option>
+          <option value="平日90分 ¥2,000">平日 90分 ¥2,000</option>
+          <option value="平日120分 ¥2,800">平日 120分 ¥2,800</option>
+          <option value="土日祝90分 ¥2,300">土日祝 90分 ¥2,300</option>
+          <option value="土日祝120分 ¥3,100">土日祝 120分 ¥3,100</option>
+        </select>
+      </div>
+
+      <!-- 日付・時間 -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="f-date">ご希望日 <span class="req">必須</span></label>
+          <input type="date" id="f-date" name="date" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-time">時間帯 <span class="req">必須</span></label>
+          <select id="f-time" name="timeSlot" class="form-control" required>
+            <option value="">選択</option>
+            <option value="7:00〜">7:00〜（朝活）</option>
+            <option value="10:00〜">10:00〜</option>
+            <option value="12:00〜">12:00〜</option>
+            <option value="14:00〜">14:00〜</option>
+            <option value="16:00〜">16:00〜</option>
+            <option value="18:00〜">18:00〜</option>
+            <option value="20:00〜">20:00〜</option>
+            <option value="22:00〜">22:00〜</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 人数 -->
+      <div class="form-group">
+        <label class="form-label" for="f-guests">人数 <span class="req">必須</span></label>
+        <select id="f-guests" name="guests" class="form-control" required>
+          <option value="">選択</option>
+          <option value="1">1名</option>
+          <option value="2">2名</option>
+          <option value="3">3名</option>
+          <option value="4">4名</option>
+        </select>
+      </div>
+
+      <!-- 氏名 -->
+      <div class="form-group">
+        <label class="form-label" for="f-name">お名前 <span class="req">必須</span></label>
+        <input type="text" id="f-name" name="name" class="form-control"
+               placeholder="山田 太郎" required autocomplete="name">
+      </div>
+
+      <!-- メール -->
+      <div class="form-group">
+        <label class="form-label" for="f-email">メールアドレス <span class="req">必須</span></label>
+        <input type="email" id="f-email" name="email" class="form-control"
+               placeholder="example@email.com" required autocomplete="email">
+      </div>
+
+      <!-- 電話番号 -->
+      <div class="form-group">
+        <label class="form-label" for="f-phone">電話番号 <span class="req">必須</span></label>
+        <input type="tel" id="f-phone" name="phone" class="form-control"
+               placeholder="090-1234-5678" required autocomplete="tel">     
+      </div>
+
+      <!-- クーポン -->
+      <div class="form-group">
+        <label class="form-label" for="f-coupon">クーポンコード <span class="opt">任意</span></label>
+        <input type="text" id="f-coupon" name="coupon" class="form-control"
+               placeholder="YUGE10" autocomplete="off">
+      </div>
+
+      <!-- 備考 -->
+      <div class="form-group">
+        <label class="form-label" for="f-note">備考 <span class="opt">任意</span></label>
+        <textarea id="f-note" name="note" class="form-control" rows="3"
+                  placeholder="ご要望・アレルギー等ございましたらご記入ください"></textarea>
+      </div>
+
+      <!-- 規約同意 -->
+      <div class="form-group form-check">
+        <input type="checkbox" id="f-agree" name="agree" required>
+        <label for="f-agree">
+          <a href="#" target="_blank">キャンセルポリシー</a>および
+          <a href="#" target="_blank">個人情報の取り扱い</a>に同意します
+        </label>
+      </div>
+
+      <!-- エラー表示 -->
+      <div id="form-error" class="form-error" role="alert" style="display:none;"></div>
+
+      <!-- 送信ボタン -->
+      <button type="submit" id="form-submit" class="btn-primary btn-form-submit">
+        予約を確定する
+      </button>
+      <div class="btn-microcopy" style="text-align:center; margin-top:8px;">
+        キャンセル無料（入館2時間前まで）｜会員登録不要
+      </div>
+
+    </form>
+
+    <!-- 完了画面 -->
+    <div id="form-success" style="display:none; text-align:center; padding: 40px 0;">
+      <div class="success-icon">✓</div>
+      <h3 style="font-family:'Shippori Mincho',serif; margin: 16px 0 8px;">予約が完了しました</h3>
+      <p style="font-size:14px; color:var(--text-sub); line-height:1.8;">
+        確認メールをお送りしました。<br>
+        ご来館をお待ちしております。
+      </p>
+      <button class="btn-secondary" onclick="closeModal()" style="margin-top:24px;">
+        閉じる
+      </button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+
+</html>

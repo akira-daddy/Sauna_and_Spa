@@ -1,0 +1,1623 @@
+/* ============================================
+   YUGE Sauna & Spa — Landing Page Styles
+   ============================================ */
+
+
+/* --- CSS Variables --- */
+:root {
+  --wood:       #D9C7B3;
+  --charcoal:   #2A2A2A;
+  --bg:         #1A1A1A;
+  --bg-card:    #222222;
+  --bg-muted:   #2F2F2F;
+  --text:       #E8DDD0;
+  --text-sub:   #A89880;
+  --line-green: #06C755;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.7;
+  padding-bottom: 72px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* --- Hero Logo & Store Info --- */
+.hero-logo {
+  width: clamp(80px, 15vw, 140px);
+  height: auto;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+
+.hero-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(18px, 3.5vw, 28px);
+  color: var(--wood);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.hero-description {
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: var(--text-sub);
+  max-width: 520px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.hero-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--wood);
+  margin: 20px auto;
+  opacity: 0.5;
+}
+
+/* --- Section Common --- */
+section {
+  padding: clamp(64px, 10vw, 120px) clamp(16px, 5vw, 80px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--wood);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(20px, 3vw, 28px);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wood);
+  color: var(--charcoal);
+  padding: 0 36px;
+  height: 52px;           /* ① 固定高さで両ボタンを揃える */
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  font-family: 'Noto Sans JP', sans-serif;
+  box-sizing: border-box;
+}
+.btn-primary:hover {
+  background: #C4B09E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(217,199,179,0.2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--wood);
+  color: var(--wood);
+  background: transparent;
+  padding: 0 32px;
+  height: 52px;           /* ① 固定高さで両ボタンを揃える（border込み） */
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  font-family: 'Noto Sans JP', sans-serif;
+  box-sizing: border-box;
+}
+.btn-secondary:hover {
+  background: rgba(217,199,179,0.08);
+}
+
+.btn-cta-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-microcopy {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* CTAボタン + 上部マイクロコピー */
+.cta-with-micro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-microcopy-above {
+  font-size: 13px;
+  color: var(--wood);
+  margin-bottom: 8px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* --- Fade-in Animation --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   ① Hero Section
+   ============================================ */
+#hero {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  /* ① SCROLLインジケーター（bottom:32px + span+arrow≒80px）分の余白を確保
+        1366×768のような画面でもCTAボタンと重ならないよう140pxに拡大 */
+  padding: 0 24px 140px;
+  max-width: none;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  will-change: transform;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-tagline {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--wood);
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.hero-h1 {
+  font-size: clamp(40px, 8vw, 72px);
+  color: var(--wood);
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.hero-sub {
+  font-size: clamp(14px, 2vw, 17px);
+  color: var(--text);
+  max-width: 560px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end; /* ① マイクロコピーがある左ボタンと右ボタンのボタン底辺を揃える */
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;   /* ① 1366×768でも余裕を持たせるため32→40pxに調整 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-indicator span {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--text-sub);
+}
+
+.scroll-indicator .arrow {
+  width: 1px;
+  height: 40px;
+  background: var(--wood);
+  position: relative;
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+.scroll-indicator .arrow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: 9px;
+  height: 9px;
+  border-right: 1px solid var(--wood);
+  border-bottom: 1px solid var(--wood);
+  transform: rotate(45deg);
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.4; }
+}
+
+/* ============================================
+   ② Reasons Grid
+   ============================================ */
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.reason-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(217,199,179,0.15);
+  border-radius: 8px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.reason-card:hover {
+  border-color: rgba(217,199,179,0.4);
+  transform: translateY(-3px);
+}
+
+.reason-card .icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--wood);
+  fill: none;
+  stroke-width: 1.5;
+  margin-bottom: 16px;
+}
+
+.reason-card .num {
+  font-size: 36px;
+  color: var(--wood);
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.reason-card .title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 8px 0 6px;
+}
+
+.reason-card .desc {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+/* ============================================
+   ③ Campaign Banner
+   ============================================ */
+.campaign-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(64px, 10vw, 120px) clamp(16px, 5vw, 80px);
+}
+
+.campaign-banner {
+  background: var(--bg-muted);
+  border: 1px solid rgba(217,199,179,0.3);
+  border-radius: 8px;
+  padding: 40px 32px;
+}
+
+.campaign-badge {
+  font-size: 13px;
+  color: var(--wood);
+  letter-spacing: 0.1em;
+  border: 1px solid var(--wood);
+  padding: 4px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.campaign-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.campaign-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(217,199,179,0.15);
+  border-radius: 8px;
+  padding: 28px 24px;
+}
+
+.campaign-card.featured {
+  border-color: var(--wood);
+}
+
+.campaign-card .plan-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.campaign-card .price-old {
+  font-size: 14px;
+  color: var(--text-sub);
+  text-decoration: line-through;
+  margin-right: 8px;
+}
+
+.campaign-card .price-new {
+  font-size: 28px;
+  color: var(--wood);
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+}
+
+.campaign-card .price-unit {
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+.campaign-card .discount-tag {
+  display: inline-block;
+  background: rgba(217,199,179,0.15);
+  color: var(--wood);
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.campaign-card .plan-detail {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+.campaign-meta {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.8;
+}
+
+.campaign-meta .coupon {
+  color: var(--wood);
+  font-weight: 600;
+}
+
+/* ============================================
+   ④ Facilities Section
+   ============================================ */
+
+/* --- 施設横スクロールショーケース --- */
+.facility-showcase {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.showcase-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  padding: 8px 4px 24px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.showcase-track::-webkit-scrollbar { display: none; }
+
+.showcase-card {
+  flex: 0 0 340px;
+  background: var(--bg-card);
+  border: 1px solid rgba(217,199,179,0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: default;
+}
+.showcase-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(217,199,179,0.2);
+}
+
+.showcase-card-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+.showcase-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.showcase-card:hover .showcase-card-image img {
+  transform: scale(1.08);
+}
+
+.showcase-card-image .showcase-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(26,26,26,0.85);
+  backdrop-filter: blur(6px);
+  color: var(--wood);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(217,199,179,0.25);
+}
+
+.showcase-card-body {
+  padding: 20px 22px 24px;
+}
+.showcase-card-body h4 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.showcase-card-body p {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.75;
+}
+
+/* ナビゲーション矢印 */
+.showcase-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.showcase-prev,
+.showcase-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(217,199,179,0.3);
+  background: rgba(42,42,42,0.7);
+  backdrop-filter: blur(6px);
+  color: var(--wood);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+.showcase-prev:hover,
+.showcase-next:hover {
+  background: var(--wood);
+  color: var(--charcoal);
+  border-color: var(--wood);
+}
+
+.showcase-prev svg,
+.showcase-next svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ドットインジケーター（エンドレス時は非表示） */
+.showcase-dots {
+  display: none;
+  gap: 8px;
+}
+
+.showcase-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(217,199,179,0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+.showcase-dot.active {
+  background: var(--wood);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* --- パララックス関連 --- */
+.hero-bg {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.section-label,
+section > h2 {
+  will-change: transform;
+}
+
+/* --- 既存のfacility styles（タブ内用） --- */
+.info-banner {
+  background: rgba(217,199,179,0.06);
+  border-left: 3px solid var(--wood);
+  padding: 12px 20px;
+  margin-bottom: 40px;
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.tabs-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(217,199,179,0.2);
+  margin-bottom: 32px;
+}
+
+.tab-btn {
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--text-sub);
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.tab-btn.active {
+  color: var(--wood);
+  border-bottom-color: var(--wood);
+}
+
+.tab-btn:hover {
+  color: var(--text);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.facility-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.facility-image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.facility-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.facility-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.facility-info .item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.facility-info .item-label {
+  font-size: 13px;
+  color: var(--wood);
+  font-weight: 600;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.facility-info .item-value {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.temp-highlight {
+  color: var(--wood);
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
+/* ============================================
+   パララックス用 will-change
+   ============================================ */
+.section-label,
+section > h2 {
+  will-change: transform;
+}
+
+/* ============================================
+   ⑤ Women's Area
+   ============================================ */
+#women {
+  position: relative;
+}
+
+.women-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.women-hero-image img {
+  border-radius: 8px;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.women-catch {
+  font-size: clamp(36px, 6vw, 64px);
+  font-family: 'Shippori Mincho', serif;
+  color: var(--wood);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.women-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.women-feature-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(217,199,179,0.15);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.women-feature-card h4 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.women-feature-card p {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.pair-banner {
+  border: 1px solid var(--wood);
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.pair-banner .pair-price {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  color: var(--wood);
+  font-weight: 600;
+}
+
+.pair-banner p {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: 6px;
+}
+
+.women-cta-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-end; /* ② マイクロコピーの有無で高さが変わる場合も下端を揃える */
+}
+
+/* ============================================
+   ⑥ Hygiene Section
+   ============================================ */
+.hygiene-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.hygiene-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.hygiene-card .icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--wood);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.hygiene-card .value {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--wood);
+  margin: 12px 0 4px;
+}
+
+.hygiene-card .label {
+  font-size: 12px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+/* ============================================
+   LINE Section
+   ============================================ */
+.line-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 80px) clamp(16px, 5vw, 80px);
+}
+
+.line-box {
+  background: var(--bg-muted);
+  border-radius: 8px;
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.line-benefits {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  margin: 24px 0 32px;
+  text-align: left;
+}
+
+.line-benefits .item {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.line-benefits .item .check {
+  color: var(--line-green);
+  margin-right: 8px;
+}
+
+.btn-line {
+  display: inline-block;
+  background: var(--line-green);
+  color: #fff;
+  border-radius: 4px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.btn-line:hover {
+  background: #05b34e;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   ⑦ Pricing Section
+   ============================================ */
+.pricing-tables {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.pricing-table-wrap h3 {
+  margin-bottom: 16px;
+}
+
+.pricing-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.pricing-table th {
+  background: var(--bg-muted);
+  color: var(--wood);
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pricing-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.pricing-table tr:hover td {
+  background: rgba(217,199,179,0.03);
+}
+
+.pricing-note {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+/* ============================================
+   ⑧ Reviews Section
+   ============================================ */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.stat-item .stat-num {
+  font-size: 48px;
+  color: var(--wood);
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.stat-item .stat-label {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: 6px;
+}
+
+.review-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-card {
+  border-left: 3px solid var(--wood);
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border-radius: 0 8px 8px 0;
+}
+
+.review-card .stars {
+  color: var(--wood);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.review-card .review-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.review-card .reviewer {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+/* ============================================
+   ⑨ Flow Section
+   ============================================ */
+.flow-steps {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.flow-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.flow-step .step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--wood);
+  color: var(--charcoal);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.flow-step .step-title {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.flow-step .step-desc {
+  font-size: 12px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+.flow-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+  color: var(--wood);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   ⑩ FAQ Section
+   ============================================ */
+.faq-list {
+  margin-top: 32px;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.faq-q {
+  padding: 18px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.faq-q .arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.faq-item.open .faq-q .arrow {
+  transform: rotate(180deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding: 0 0 18px;
+}
+
+.faq-a p {
+  color: var(--text-sub);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ============================================
+   ⑪ Access Section
+   ============================================ */
+.access-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 32px;
+}
+
+.access-info .access-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.access-item .access-label {
+  font-size: 13px;
+  color: var(--wood);
+  font-weight: 600;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.access-item .access-value {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.access-map iframe {
+  width: 100%;
+  height: 320px;
+  border: none;
+  border-radius: 8px;
+  opacity: 0.85;
+  filter: grayscale(30%);
+}
+
+/* ============================================
+   ⑫ Footer
+   ============================================ */
+footer {
+  background: var(--charcoal);
+  padding: 48px 24px 32px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 24px;
+  color: var(--wood);
+}
+
+.footer-tagline {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: 8px;
+}
+
+.footer-sns {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-sns a svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--text-sub);
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+.footer-sns a:hover svg {
+  stroke: var(--wood);
+}
+
+.footer-legal {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  font-size: 12px;
+  color: var(--text-sub);
+  line-height: 1.8;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+  color: var(--text-sub);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+  color: var(--wood);
+}
+
+.footer-copyright {
+  margin-top: 24px;
+  font-size: 11px;
+  color: var(--text-sub);
+  text-align: center;
+}
+
+/* ============================================
+   Sticky CTA
+   ============================================ */
+#sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(26,26,26,0.97);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(217,199,179,0.2);
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+#sticky-cta .btn-sticky-secondary {
+  width: 48%;
+  max-width: 240px;
+  border: 1.5px solid var(--wood);
+  color: var(--wood);
+  background: transparent;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+#sticky-cta .btn-sticky-secondary:hover {
+  background: rgba(217,199,179,0.08);
+}
+
+#sticky-cta .btn-sticky-primary {
+  width: 52%;
+  max-width: 260px;
+  background: var(--wood);
+  color: var(--charcoal);
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+#sticky-cta .btn-sticky-primary:hover {
+  background: #C4B09E;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .campaign-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .facility-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .women-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .women-features {
+    grid-template-columns: 1fr;
+  }
+
+  .hygiene-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-bar {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .flow-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flow-connector {
+    transform: rotate(90deg);
+    padding: 0;
+  }
+
+  .access-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* SCROLLインジケーター（約80px）分の余白をhero自体に持たせ、
+     コンテンツが絶対配置のSCROLLと重ならないようにする */
+  #hero {
+    justify-content: flex-end;
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+
+  #hero .hero-content {
+    padding-bottom: 0;
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+  }
+
+  .tabs-nav {
+    overflow-x: auto;
+  }
+
+  .showcase-card {
+    flex: 0 0 280px;
+  }
+  .showcase-card-image {
+    height: 180px;
+  }
+
+  .tab-btn {
+    padding: 12px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hygiene-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 48px 16px;
+  }
+}
+/* ============================================
+   予約フォームモーダル
+   ============================================ */
+#reservation-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 16px 40px;
+  overflow-y: auto;
+}
+#reservation-modal.open {
+  display: flex !important;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border: 1px solid rgba(217,199,179,0.25);
+  border-radius: 12px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 560px;
+  margin: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-sub);
+  padding: 4px;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--text); }
+
+.modal-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--wood);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.modal-title {
+  font-size: clamp(24px, 4vw, 32px);
+  margin-bottom: 28px;
+}
+
+/* フォーム共通 */
+.form-group { margin-bottom: 20px; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 6px;
+}
+.req {
+  display: inline-block;
+  font-size: 10px;
+  background: rgba(217,199,179,0.2);
+  color: var(--wood);
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+}
+.opt {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--text-sub);
+  margin-left: 6px;
+}
+.form-control {
+  width: 100%;
+  background: var(--bg-muted);
+  border: 1px solid rgba(217,199,179,0.15);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  padding: 10px 12px;
+  transition: border-color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--wood);
+}
+.form-control::placeholder { color: var(--text-sub); opacity: 0.6; }
+select.form-control {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A89880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+textarea.form-control { resize: vertical; min-height: 88px; }
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+.form-check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  accent-color: var(--wood);
+  cursor: pointer;
+}
+.form-check a { color: var(--wood); text-decoration: underline; }
+
+.form-error {
+  background: rgba(200,60,60,0.12);
+  border: 1px solid rgba(200,60,60,0.3);
+  border-radius: 4px;
+  color: #e07070;
+  font-size: 13px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.btn-form-submit {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+.btn-form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.success-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(217,199,179,0.15);
+  border: 1px solid var(--wood);
+  color: var(--wood);
+  font-size: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .modal-content { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   フィールドバリデーション スタイル
+   ============================================ */
+
+/* エラー状態：赤枠 */
+.form-control.is-invalid {
+  border-color: #e07070;
+  background-color: rgba(200, 60, 60, 0.06);
+}
+
+/* 成功状態：緑枠 */
+.form-control.is-valid {
+  border-color: #6abf8a;
+}
+
+/* フォーカス中はエラー枠色を維持 */
+.form-control.is-invalid:focus {
+  border-color: #e07070;
+  box-shadow: 0 0 0 3px rgba(200, 60, 60, 0.15);
+}
+
+/* フィールド直下のエラーメッセージ */
+.field-error {
+  display: block;
+  font-size: 12px;
+  color: #e07070;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+/* チェックボックスのエラー状態 */
+.form-check:has(.is-invalid) label {
+  color: #e07070;
+}
+
+/* チェックボックス自体の赤枠 */
+input[type="checkbox"].is-invalid {
+  outline: 2px solid #e07070;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+input[type="checkbox"].is-valid {
+  outline: 2px solid #6abf8a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
