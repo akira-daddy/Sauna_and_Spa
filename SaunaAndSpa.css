@@ -472,18 +472,30 @@ h3 {
 .facility-showcase {
   position: relative;
   margin-bottom: 48px;
+  overflow: hidden; /* ← クリッピングはここで行う */
 }
 
 .showcase-track {
   display: flex;
   gap: 24px;
-  overflow-x: auto;
-  scroll-behavior: auto;
-  padding: 8px 4px 24px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  /* overflow は親に任せる。トラック自体ははみ出しOK */
+  padding: 8px 0 24px;
+  /* translateX の移動量はJSが --marquee-width にセットする */
+  animation: marqueeScroll 28s linear infinite;
+  will-change: transform;
 }
-.showcase-track::-webkit-scrollbar { display: none; }
+
+/* 自動スクロールアニメーション：JS が計算した幅だけ左へ移動 */
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * var(--marquee-width, 50%))); }
+}
+
+/* ホバー時・ボタン操作時に一時停止 */
+.facility-showcase:hover .showcase-track,
+.facility-showcase.paused .showcase-track {
+  animation-play-state: paused;
+}
 
 .showcase-card {
   flex: 0 0 340px;

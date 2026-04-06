@@ -117,76 +117,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. 施設設備紹介 自動エンドレス横スクロール
+  // 6. 施設設備紹介 CSSマーキー方式エンドレス横スクロール
+  // - cloneNode(true)で複製 → 複製側のimgにloading="lazy"を付与
+  // - スクロール幅をJSで計算しCSS変数(--marquee-width)にセット → 正確なループ
   const showcase = document.querySelector('.facility-showcase');
   if (showcase) {
-    const track = showcase.querySelector('.showcase-track');
+    const track   = showcase.querySelector('.showcase-track');
     const prevBtn = showcase.querySelector('.showcase-prev');
     const nextBtn = showcase.querySelector('.showcase-next');
 
     if (track) {
-      // カードを複製してエンドレス用の十分な幅を確保
-      const originalCards = track.innerHTML;
-      track.innerHTML = originalCards + originalCards;
+      // アニメーションを一旦止めて幅を正確に計測
+      track.style.animation = 'none';
 
-      let scrollPos = 0;
-      let speed = 0.5; // px/frame
-      let autoScrollRAF = null;
-      let isPaused = false;
+      const originalCards = Array.from(track.children);
 
-      // 自動スクロールループ
-      function autoScroll() {
-        if (!isPaused) {
-          scrollPos += speed;
-          // 折り返しポイント：複製前の半分を超えたらリセット
-          const halfWidth = track.scrollWidth / 2;
-          if (scrollPos >= halfWidth) {
-            scrollPos -= halfWidth;
-          }
-          track.scrollLeft = scrollPos;
-        }
-        autoScrollRAF = requestAnimationFrame(autoScroll);
+      // cloneNode(true)で複製し、複製側のimgにloading="lazy"を付与
+      originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.querySelectorAll('img').forEach(img => {
+          img.setAttribute('loading', 'lazy');
+        });
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+
+      // オリジナル6枚分の実際の幅をpxで計算してCSS変数にセット
+      function setMarqueeWidth() {
+        track.style.animation = 'none';
+        // 全カードのうち前半（オリジナル）の幅 + gap合計
+        const cardCount = originalCards.length;
+        const gapPx = 24; // CSSのgapと一致させる
+        let originalWidth = 0;
+        Array.from(track.children).slice(0, cardCount).forEach(card => {
+          originalWidth += card.offsetWidth + gapPx;
+        });
+        track.style.setProperty('--marquee-width', originalWidth + 'px');
+        // 強制リフローで再アニメーション開始
+        void track.offsetWidth;
+        track.style.animation = '';
       }
 
-      // ホバーで一時停止
-      showcase.addEventListener('mouseenter', () => { isPaused = true; });
-      showcase.addEventListener('mouseleave', () => {
-        isPaused = false;
-        scrollPos = track.scrollLeft;
-      });
+      // 初回計算（画像ロード後に再計算して正確な値を確保）
+      setMarqueeWidth();
+      window.addEventListener('load', setMarqueeWidth);
+      window.addEventListener('resize', setMarqueeWidth);
 
-      // タッチで一時停止
-      track.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
-      track.addEventListener('touchend', () => {
-        setTimeout(() => {
-          isPaused = false;
-          scrollPos = track.scrollLeft;
-        }, 2000); // タッチ後2秒で再開
+      // 矢印ボタン: クリックで5秒間一時停止してから再開
+      let pauseTimer = null;
+      function pauseAndResume() {
+        showcase.classList.add('paused');
+        clearTimeout(pauseTimer);
+        pauseTimer = setTimeout(() => {
+          showcase.classList.remove('paused');
+        }, 5000);
+      }
+
+      prevBtn?.addEventListener('click', pauseAndResume);
+      nextBtn?.addEventListener('click', pauseAndResume);
+
+      // タッチ操作でも一時停止
+      track.addEventListener('touchstart', () => {
+        showcase.classList.add('paused');
+        clearTimeout(pauseTimer);
       }, { passive: true });
 
-      // 矢印ボタン
-      const cardWidth = track.querySelector('.showcase-card')?.offsetWidth + 24 || 400;
-      prevBtn?.addEventListener('click', () => {
-        isPaused = true;
-        track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-        setTimeout(() => {
-          scrollPos = track.scrollLeft;
-          isPaused = false;
-        }, 600);
-      });
-      nextBtn?.addEventListener('click', () => {
-        isPaused = true;
-        track.scrollBy({ left: cardWidth, behavior: 'smooth' });
-        setTimeout(() => {
-          scrollPos = track.scrollLeft;
-          isPaused = false;
-        }, 600);
-      });
-
-      // 画像読み込み後にスクロール開始
-      window.addEventListener('load', () => {
-        autoScrollRAF = requestAnimationFrame(autoScroll);
-      });
+      track.addEventListener('touchend', () => {
+        pauseTimer = setTimeout(() => {
+          showcase.classList.remove('paused');
+        }, 2000);
+      }, { passive: true });
     }
   }
 
@@ -253,6 +253,7 @@ function closeModal() {
 }
 
 window.closeModal = closeModal;
+window.openModal = openModal;
 
 // --- 全予約ボタンにイベントを付与 ---
 document.addEventListener('DOMContentLoaded', () => {
