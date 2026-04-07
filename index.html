@@ -85,13 +85,17 @@
 
   <link rel="stylesheet" href="SaunaAndSpa.css">
   <script src="SaunaAndSpa.js" defer></script>
+
+  <!-- 重要な画像を先に読み込むためのプリロード -->
+  <link rel="preload" as="image" href="images_dir/Main_sauna_image.png">
+
 </head>
 <body>
 
   <!-- ① Hero Section -->
   <section id="hero">
     <div class="hero-bg">
-      <img src="images_dir/Main_sauna_image.png" alt="湯気 YUGE Sauna & Spa メインサウナ室">
+      <img src="images_dir/Main_sauna_image.png" fetchpriority="high" alt="湯気 YUGE Sauna & Spa メインサウナ室">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
