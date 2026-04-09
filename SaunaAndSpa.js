@@ -163,29 +163,41 @@ document.addEventListener('DOMContentLoaded', () => {
       window.addEventListener('load', setMarqueeWidth);
       window.addEventListener('resize', setMarqueeWidth);
 
-      // 矢印ボタン: クリックで5秒間一時停止してから再開
+      // 一時停止／再開のヘルパー
       let pauseTimer = null;
-      function pauseAndResume() {
+
+      function pauseScroll() {
         showcase.classList.add('paused');
         clearTimeout(pauseTimer);
-        pauseTimer = setTimeout(() => {
-          showcase.classList.remove('paused');
-        }, 5000);
       }
 
-      prevBtn?.addEventListener('click', pauseAndResume);
-      nextBtn?.addEventListener('click', pauseAndResume);
-
-      // タッチ操作でも一時停止
-      track.addEventListener('touchstart', () => {
-        showcase.classList.add('paused');
+      function resumeScroll() {
+        showcase.classList.remove('paused');
         clearTimeout(pauseTimer);
+      }
+
+      function resumeAfter(ms) {
+        clearTimeout(pauseTimer);
+        pauseTimer = setTimeout(resumeScroll, ms);
+      }
+
+      // PCホバー: マウスが乗っている間は停止、離れたら即再開
+      showcase.addEventListener('mouseenter', pauseScroll);
+      showcase.addEventListener('mouseleave', resumeScroll);
+
+      // スマホタッチ: タップで停止 → 指を離してから3秒後に再開
+      // touchstart/touchend 両方でタイマーをリセットして確実に再開させる
+      track.addEventListener('touchstart', () => {
+        pauseScroll();
       }, { passive: true });
 
       track.addEventListener('touchend', () => {
-        pauseTimer = setTimeout(() => {
-          showcase.classList.remove('paused');
-        }, 2000);
+        resumeAfter(3000);
+      }, { passive: true });
+
+      // touchcancel（スクロールに移行した場合など）でも再開
+      track.addEventListener('touchcancel', () => {
+        resumeAfter(3000);
       }, { passive: true });
     }
   }
@@ -220,6 +232,11 @@ function openModal(plan = '') {
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
   modal.querySelector('.form-control').focus();
+
+  // スマホの「戻るボタン」でモーダルを閉じるためにhistoryエントリを追加
+  if (!history.state?.modalOpen) {
+    history.pushState({ modalOpen: true }, '');
+  }
 }
 
 function closeModal() {
@@ -251,6 +268,14 @@ function closeModal() {
     }
   }
 }
+
+// スマホの「戻るボタン」でモーダルを閉じる（ページ離脱を防止）
+window.addEventListener('popstate', (e) => {
+  const modal = document.getElementById('reservation-modal');
+  if (modal && modal.classList.contains('open')) {
+    closeModal();
+  }
+});
 
 window.closeModal = closeModal;
 window.openModal = openModal;

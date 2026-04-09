@@ -491,8 +491,7 @@ h3 {
   100% { transform: translateX(calc(-1 * var(--marquee-width, 50%))); }
 }
 
-/* ホバー時・ボタン操作時に一時停止 */
-.facility-showcase:hover .showcase-track,
+/* 一時停止（JSでpausedクラスを付与） */
 .facility-showcase.paused .showcase-track {
   animation-play-state: paused;
 }
@@ -924,10 +923,11 @@ section > h2 {
    ⑦ Pricing Section
    ============================================ */
 .pricing-tables {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   margin-top: 32px;
+  align-items: start;
 }
 
 .pricing-table-wrap h3 {
@@ -1343,6 +1343,10 @@ footer {
     gap: 32px;
   }
 
+  .pricing-tables {
+    grid-template-columns: 1fr;
+  }
+
   .flow-steps {
     flex-direction: column;
     align-items: center;
@@ -1411,6 +1415,12 @@ footer {
 
   section {
     padding: 48px 16px;
+  }
+
+  /* iPhone SE（375px）でキャッチコピーが1行に収まるよう調整 */
+  .hero-h1 {
+    font-size: clamp(24px, 7.5vw, 36px);
+    white-space: nowrap;
   }
 }
 
